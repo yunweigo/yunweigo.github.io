@@ -1,30 +1,32 @@
 {
-  "name": "hexo-theme-pure",
-  "version": "1.0.0",
-  "description": "A modern and simple theme for Hexo.",
+  "name": "gridea-theme-pure",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build:styles": "./node_modules/.bin/gulp"
+    "dev": "./node_modules/.bin/gulp",
+    "serve": "nodemon --watch templates --watch assets -e js,ejs,less,css app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/renbaoshuo/hexo-theme-pure.git"
-  },
-  "keywords": [
-    "hexo",
-    "hexo-theme"
-  ],
-  "author": {
-    "name": "Ren Baoshuo",
-    "email": "i@baoshuo.ren",
-    "url": "https://baoshuo.ren"
-  },
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/renbaoshuo/hexo-theme-pure/issues"
-  },
-  "homepage": "https://github.com/renbaoshuo/hexo-theme-pure#readme",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-less": "^2.0.2"
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-nodemon": "^2.4.2",
+    "nodemon": "^1.18.11"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": "2500"
   }
 }

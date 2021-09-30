@@ -1,120 +1,52 @@
-# Pure
+## 介绍
 
-> A modern and simple theme for Hexo.
+一款专为 Gridea 设计的主题，默认内置 "简约白"、"暗夜黑"、"银光灰"、"墨草绿" 4 种配色方案。另外还：
 
-[![Author](https://img.shields.io/badge/Author-Baoshuo-b68469.svg?style=flat-square)](https://baoshuo.ren)
-[![Version](https://img.shields.io/github/v/release/renbaoshuo/hexo-theme-pure?color=%235755d9&include_prereleases&label=version&style=flat-square)](https://github.com/renbaoshuo/hexo-theme-pure/releases)
-[![Hexo](https://img.shields.io/badge/hexo-4.0+-0e83cd.svg?style=flat-square)](https://hexo.io)
-[![Repo Size](https://img.shields.io/github/repo-size/renbaoshuo/hexo-theme-pure?style=flat-square)](https://github.com/renbaoshuo/hexo-theme-pure)
+- 支持自定义配色。
+- 移动端页面适配。
+- 支持社交信息设置。
+- 支持谷歌统计。
+- 支持友链功能。（感谢 [@renbaoshuo](https://github.com/renbaoshuo)）
+- 支持在根目录下增加关于页面。（感谢 [@renbaoshuo](https://github.com/renbaoshuo)） **格式 `https://example.com/about/`*
+- 自定义 CSS 样式。
+- 文章搜索功能。（感谢 [@uiYzzi](https://github.com/uiYzzi)）
 
-![image](https://user-images.githubusercontent.com/47095648/111874137-bb164800-89ce-11eb-94fc-0d7e6d17718a.png)
+## 预览
 
-English | [简体中文](/README.zh_CN.md)
+示例站点：<https://imhanjie.com/>
 
-*This theme is transplanted from [imhanjie/gridea-theme-pure](https://github.com/imhanjie/gridea-theme-pure) and has been approved by the original author.*
+![](https://tva1.sinaimg.cn/large/006tNbRwly1gaqcu0b03bj31vh0u0avx.jpg)
 
-## Demo
+![](https://tva1.sinaimg.cn/large/006tNbRwly1gaqcutvj86j32vl0u04e4.jpg)
 
-+ [Baoshuo's Blog](https://blog.baoshuo.ren) (Modified version)
-+ [Hexo Theme Unit Test of Theme Pure](https://renbaoshuo.github.io/hexo-theme-pure)
+![](https://tva1.sinaimg.cn/large/006tNbRwly1gaqcvc3pjkj32vl0u0aq5.jpg)
 
-## Installation
+![](https://tva1.sinaimg.cn/large/006tNbRwly1gaqcvhp5mdj32vl0u04cw.jpg)
 
-You need to switch to the directory where the site is located before performing the following operations.
 
-```bash
-npm install hexo-renderer-ejs hexo-renderer-less --save
-git clone https://github.com/renbaoshuo/hexo-theme-pure.git themes/pure
-```
+## 安装
 
-## Settings
+使用 `git clone` 本项目到 Gridea 站点源文件路径的 `themes` 目录内，或者前往 [release](https://github.com/imhanjie/gridea-theme-pure/releases) 页面下载最新的 release 解压到 Gridea 站点源文件路径的 `themes` 目录内，然后**重启  Gridea** 即可。
 
-+ `favicon`: Site logo displayed in browser tabs and bookmarks. (String, default: `/favicon.ico`)
-+ `avatar`: Site logo displayed on the header. (String, default: `/favicon.png`)
-+ `katex`: Whether to load [KaTeX](https://katex.org) CSS. (Boolean, default: `false`)
-+ `menus` (Array)
-  - `name`: The name displayed on the navigation bar. (String)
-  - `link`: The link of the page to jump to. (String)
-  - `target`: The [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target) of the link. (String, `_self` or `_blank`, default: `_self`)
-+ `disqus`: DisqusJS Settings
-  - `enable`: Whether to enable DisqusJS. (Boolean, default: `false`)
-  - `shortname`: The shortname of the Disqus site.
-  - `api`: Your disqus api.
-  - `apikey`: Your disqus api key.
-  - `admin`: Your disqus username.
-+ `gitalk`: [Gitalk](https://github.com/gitalk/gitalk) Settings
-  - `enable`: Whether to enable Gitalk. (Boolean, default: `false`)
-  - `clientId`: Your GitHub oauth app client id
-  - `clientSecret`:  Your GitHub oauth app client secret
-  - `repository`: Your GitHub comment repository
-  - `owner`: Your GitHub username
-+ `google_analytics`: Google Analytics Settings
-  - `enable`: Whether to enable Google Analytics. (Boolean, default: `false`)
-  - `id`: Google Analytics tracker id.
-+ `footer`: The content displayed in the footer.
-+ `friends`: Friends (Array)
-  - `name`: The name displayed on the friends list.
-  - `link`: The link of the page to jump to.
-  - `logo`: The logo displayed on the friends list.
+>  Gridea 站点源文件路径：可在 Gridea 客户端设置页面查看。
 
-## Attention
+### 注意事项
 
-### Code highlight Settings
+#### 友链功能
 
-The theme has built-in highlight style of [`highlightjs`](https://highlightjs.org). Please do not enable `line_number` and `wrap` because this theme does not support them.
+在主题自定义配置里面配置好友链信息后还需要在 Gridea 配置友链的入口，点击 Gridea 菜单选项卡中右上角加号添加友链菜单，配置如下：
 
-Here is a configuration example:
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ggu1jtta50j30m60kgjs2.jpg" width="350px" />
 
-```yaml
-highlight:
-  enable: true
-  auto_detect: true
-  line_number: false  # This value must be `false`
-  wrap: false         # This value must be `false`
-  tab_replace: '    ' # 4 spaces
-  hljs: true          # This value must be `true`
-prismjs:
-  enable: false
-```
+#### 关于页面
 
-### KaTeX Settings
+在主题自定义配置里配置好关于信息后还需要在 Gridea 配置关于的入口，点击 Gridea 菜单选项卡中右上角加号添加关于菜单。
 
-It is recommended to use `hexo-renderer-markdown-it` to render Markdown and install `@neilsustc/markdown-it-katex` to render mathematical formulas.
+#### 搜索功能
 
-```bash
-npm uninstall hexo-renderer-marked --save
-npm install hexo-renderer-markdown-it @neilsustc/markdown-it-katex --save
-```
+启用搜索功能后请及时更新 CDN 上缓存的静态资源文件，以免无法正常显示搜索样式。
 
-Here is a configuration example:
+## 感谢
 
-```yaml
-# Markdown-it config
-## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
-markdown:
-  render:
-    html: true
-    xhtmlOut: false
-    breaks: true
-    linkify: true
-    typographer: true
-  plugins:
-    - '@neilsustc/markdown-it-katex'
-  anchors:
-    level: 2
-    collisionSuffix: 't'
-    permalink: false
-    permalinkClass: header-anchor
-    permalinkSymbol: ''
-```
-
-### DisqusJS Settings
-
-You must [Register a Disqus Application](https://disqus.com/api/applications/) before using [DisqusJS](https://github.com/SukkaW/DisqusJS).
-
-## Author
-
-**hexo-theme-pure** © [Baoshuo](https://github.com/renbaoshuo), Released under the [GPL-3.0](./LICENSE) License.  
-Authored and maintained by Baoshuo with help from [contributors](https://github.com/renbaoshuo/hexo-theme-pure/contributors).
-
-> [Personal Website](https://baoshuo.ren) · [Blog](https://blog.baoshuo.ren) · GitHub [@renbaoshuo](https://github.com/renbaoshuo) · Twitter [@renbaoshuo](https://twitter.com/renbaoshuo)
+- [Gridea - 一个静态博客写作客户端](https://gridea.dev/)
+- [gridea-theme-starter](https://github.com/getgridea/gridea-theme-starter)
