@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>yunweigo</title>
+    <link href="https://yunweigo.github.io/feed.xml" rel="self" />
+    <link href="https://yunweigo.github.io" />
+    <updated>2021-10-04T17:47:37+08:00</updated>
+    <author>
+        <name>yunweigo</name>
+    </author>
+    <id>https://yunweigo.github.io</id>
+
+    <entry>
+        <title>新建文章</title>
+        <author>
+            <name>yunweigo</name>
+        </author>
+        <link href="https://yunweigo.github.io/xin-jian-wen-zhang.html"/>
+        <id>https://yunweigo.github.io/xin-jian-wen-zhang.html</id>
+
+        <updated>2021-10-04T17:47:37+08:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+</feed>
