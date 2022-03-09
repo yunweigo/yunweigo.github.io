@@ -2,13 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yunweigo.github.io/about/</loc>
-    <lastmod>2022-03-01T17:18:49+08:00</lastmod>
+    <loc>https://yunweigo.github.io/categories/about/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://yunweigo.github.io/categories/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/tags/dayliy/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/post/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://yunweigo.github.io/tags/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/categories/tech/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/tags/windows-server/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/post/first/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://yunweigo.github.io/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/tags/%E6%95%99%E7%A8%8B%E7%9B%AE%E5%BD%95/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/post/day01/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/post/secound/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/tags/tag1/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/tags/tag2/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/post/windows-ad-01/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yunweigo.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
   </url>
 </urlset>
