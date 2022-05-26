@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sentinel on YunWeiGo Home</title>
+    <link>http://yunweigo.github.io/tags/sentinel/</link>
+    <description>Recent content in Sentinel on YunWeiGo Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://yunweigo.github.io/tags/sentinel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sentinel教程</title>
+      <link>http://yunweigo.github.io/post/sentinel/01-shentinel/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yunweigo.github.io/post/sentinel/01-shentinel/</guid>
+      <description>Sentinel 什么是Sentinel 随着微服务的流行，服务和服务之间的稳定性变得越来越重要。Sentinel 是面向分布式服务架构的流量控制组件，主要以流量为切入点，从流量控制、熔断降级、系统自适应保护等多个维度来帮助您保障微服务的稳定性
+基础概念 限流 为了保障下游服务稳定性，通常会提前预估调用QPS，一旦超过预估QPS则可以进行限流，拒绝超出预估的请求。
+常见的限流算法有固定窗口、滑动窗口、漏桶和令牌桶
+熔断 当下游服务不可用或者响应过慢，可以切断调用链路直接返回结果，保证自身服务的可用性
+降级 当服务器压力剧增，可以考虑对非核心业务流程进行降级，保证核心功能可用。
+总结
+ 限流：限制范围时间内的请求数 熔断：不因下游服务故障造成当前服务不可用 降级：暂停其他业务保证自身核心业务正常运行  基础使用 Sentinel 在 go语言中的使用 https://sentinelguard.io/zh-cn/docs/golang/basic-api-usage.html
+代码说明 Sentinel启动配置 Sentinel的运行需要一些配置启动项，比如启动监控日志，用户自定义日志目录，统计相关的一些设置等等
+https://github.com/alibaba/sentinel-golang/wiki/%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE
+熔断降级设计模型 https://sentinelguard.io/zh-cn/docs/golang/circuit-breaking.html
+Sentinel 在Java中使用 AHAS 高可用 文档链接 https://help.aliyun.com/product/87450.html
+Sentinel 与 Hytrix的区别 </description>
+    </item>
+    
+  </channel>
+</rss>

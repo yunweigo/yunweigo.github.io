@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>教程目录 on YunWeiGo Home</title>
-    <link>https://yunweigo.github.io/tags/%E6%95%99%E7%A8%8B%E7%9B%AE%E5%BD%95/</link>
+    <link>http://yunweigo.github.io/tags/%E6%95%99%E7%A8%8B%E7%9B%AE%E5%BD%95/</link>
     <description>Recent content in 教程目录 on YunWeiGo Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yunweigo.github.io/tags/%E6%95%99%E7%A8%8B%E7%9B%AE%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://yunweigo.github.io/tags/%E6%95%99%E7%A8%8B%E7%9B%AE%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WindowServer教程</title>
-      <link>https://yunweigo.github.io/post/first/</link>
+      <link>http://yunweigo.github.io/post/first/</link>
       <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://yunweigo.github.io/post/first/</guid>
-      <description>Windows Server     Root  Level 1  Level 2 Level 2  Level 3 Level 3  Level 4  Level 5  Level 6           Level 1  Level 2 Level 2   Level 1  Level 2 Level 2   Level 1  Level 2 Level 2   Level 1  Level 2 Level 2       </description>
+      <guid>http://yunweigo.github.io/post/first/</guid>
+      <description>Windows Server </description>
     </item>
     
   </channel>
