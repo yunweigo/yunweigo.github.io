@@ -245,6 +245,61 @@
 <h4 id="ahas-高可用">AHAS 高可用</h4>
 <p>文档链接 <a href="https://help.aliyun.com/product/87450.html">https://help.aliyun.com/product/87450.html</a></p>
 <h3 id="sentinel-与-hytrix的区别">Sentinel 与 Hytrix的区别</h3>
+<h4 id="sentinel-限流措施">sentinel 限流措施</h4>
+<ul>
+<li>通过并发线程数进行限制</li>
+<li>通过响应时间对资源进行降级</li>
+</ul>
+<h4 id="hytrix-限流方案">Hytrix 限流方案</h4>
+<p>Hystrix 通过<a href="https://github.com/Netflix/Hystrix/wiki/How-it-Works#benefits-of-thread-pools">线程池</a>的方式，来对依赖(在我们的概念中对应资源)进行了隔离。</p>
+<h3 id="流控场景及方案">流控场景及方案</h3>
+<p>转自 <a href="https://sentinelguard.io/zh-cn/docs/golang/flow-control.html">https://sentinelguard.io/zh-cn/docs/golang/flow-control.html</a></p>
+<h4 id="基于qps进行流控">基于QPS进行流控</h4>
+<p>基于对某个资源访问的QPS来做流控，这个是非常常见的场景。流控规则的配置下面有个sample：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Resource</span>:                <span style="color:#e6db74">&#34;some-test&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">TokenCalculateStrategy</span>:  <span style="color:#a6e22e">flow</span>.<span style="color:#a6e22e">Direct</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ControlBehavior</span>:         <span style="color:#a6e22e">flow</span>.<span style="color:#a6e22e">Reject</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Threshold</span>:               <span style="color:#ae81ff">500</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">StatIntervalInMs</span>:        <span style="color:#ae81ff">1000</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上面sample中的5个字段是必填的。其中StatIntervalInMs必须是1000，表示统计周期是1s，那么Threshold所配置的值也就是QPS的阈值。</p>
+<h4 id="基于一定统计间隔时间来控制总的请求数">基于一定统计间隔时间来控制总的请求数</h4>
+<p>这个场景就是想在一定统计周期内控制请求的总量。比如<code>StatIntervalInMs</code>配置10000，<code>Threshold</code>配置10000，这种配置意思就是控制10s内最大请求数是10000。sample:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Resource</span>:                <span style="color:#e6db74">&#34;some-test&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">TokenCalculateStrategy</span>:  <span style="color:#a6e22e">flow</span>.<span style="color:#a6e22e">Direct</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ControlBehavior</span>:         <span style="color:#a6e22e">flow</span>.<span style="color:#a6e22e">Reject</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Threshold</span>:               <span style="color:#ae81ff">10000</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">StatIntervalInMs</span>:        <span style="color:#ae81ff">10000</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>注意：这种流控配置对于脉冲类型的流量抵抗力很弱，有极大潜在风险压垮系统。比如流量表现形式是10s内请求数最大是9800，实际上流量可能是脉冲形式，比如下图：</p>
+<p>
+  <img src="https://user-images.githubusercontent.com/9346473/94354820-a907bc80-00b1-11eb-8831-a3f67eda908c.png" alt="脉冲流量">
+
+</p>
+<h4 id="毫秒流控">毫秒流控</h4>
+<p>针对一些流量曲在毫秒级别波动非常大的场景(类似于脉冲)， 建议<code>StatIntervalInMs</code>的配置在毫秒级别，除非特殊场景，建议配置的值为100ms的倍数，比如100，200这种。这种相当于缩小了统计周期，将QPS的周期缩小了10倍，控制周期降低到了100ms。</p>
+<pre tabindex="0"><code>{
+	Resource:                &#34;some-test&#34;,
+  TokenCalculateStrategy:  flow.Direct,
+	ControlBehavior:         flow.Reject,
+	Threshold:               80,
+  StatIntervalInMs:        100,
+}
+</code></pre><p>上面限制了100ms的阈值是80，实际QPS大概是800。注意：这种配置也是有缺点的，脉冲流量很大可能造成有损(会拒绝很多流量)</p>
+<h3 id="脉冲流量无损">脉冲流量无损</h3>
+<p>针对前面第三点场景，如果既想控制流量曲线，又想无损，一般做法是通过匀速排队的控制策略，平滑掉流量。</p>
+<p>我们衡量下游服务质量时候，场景的指标就是RT(response time)、异常数量以及异常比例等等。Sentinel 的熔断器支持三种熔断策略：慢调用比例熔断、异常比例熔断以及异常数量熔断</p>
+<p>用户通过设置熔断规则(Rule)来给资源添加熔断器。Sentinel会将每一个熔断规则转换成对应的熔断器，熔断器对用户是不可见的。Sentinel 的每个熔断器都会有自己独立的统计结构。</p>
+<p>熔断器的整体检查逻辑可以用几点来精简概括：</p>
+<ol>
+<li>基于熔断器的状态机来判断对资源是否可以访问；</li>
+<li>对不可访问的资源会有探测机制，探测机制保障了对资源访问的弹性恢复；</li>
+<li>熔断器会在对资源访问的完成态去更新统计，然后基于熔断规则更新熔断器状态机。</li>
+</ol>
+<h3 id="系统自适应保护">系统自适应保护</h3>
+<p>Sentinel 在系统自适应保护的做法是，用 load1 作为启动控制流量的值, 流量由处理请求的能力，即请求的响应时间以及当前系统正在处理的请求速率来决定。</p>
 
 
                 
@@ -253,13 +308,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/windows-ad-01/" data-toggle="tooltip" data-placement="top" title="Windows Server">&larr;
+                        <a href="/post/windows/windows-ad-01/" data-toggle="tooltip" data-placement="top" title="Windows Server">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/secound/" data-toggle="tooltip" data-placement="top" title="An Example Post">Next
+                        <a href="/post/jumpserver-00/" data-toggle="tooltip" data-placement="top" title="An Example Post">Next
                             Post &rarr;</a>
                     </li>
                     

@@ -24,7 +24,10 @@
 https://github.com/alibaba/sentinel-golang/wiki/%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE
 熔断降级设计模型 https://sentinelguard.io/zh-cn/docs/golang/circuit-breaking.html
 Sentinel 在Java中使用 AHAS 高可用 文档链接 https://help.aliyun.com/product/87450.html
-Sentinel 与 Hytrix的区别 </description>
+Sentinel 与 Hytrix的区别 sentinel 限流措施  通过并发线程数进行限制 通过响应时间对资源进行降级  Hytrix 限流方案 Hystrix 通过线程池的方式，来对依赖(在我们的概念中对应资源)进行了隔离。
+流控场景及方案 转自 https://sentinelguard.io/zh-cn/docs/golang/flow-control.html
+基于QPS进行流控 基于对某个资源访问的QPS来做流控，这个是非常常见的场景。流控规则的配置下面有个sample：
+{ 	Resource: &amp;#34;some-test&amp;#34;,  TokenCalculateStrategy: flow.Direct, 	ControlBehavior: flow.Reject, 	Threshold: 500,  StatIntervalInMs: 1000, } 上面sample中的5个字段是必填的。其中StatIntervalInMs必须是1000，表示统计周期是1s，那么Threshold所配置的值也就是QPS的阈值。</description>
     </item>
     
   </channel>

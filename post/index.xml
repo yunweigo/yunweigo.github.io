@@ -9,20 +9,11 @@
     <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://yunweigo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>windows 安装nas服务</title>
-      <link>http://yunweigo.github.io/post/windows-nas/</link>
+      <link>http://yunweigo.github.io/post/windows/windows-nas/</link>
       <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://yunweigo.github.io/post/windows-nas/</guid>
+      <guid>http://yunweigo.github.io/post/windows/windows-nas/</guid>
       <description>Windows安装NAS </description>
-    </item>
-    
-    <item>
-      <title>WindowServer教程</title>
-      <link>http://yunweigo.github.io/post/first/</link>
-      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>http://yunweigo.github.io/post/first/</guid>
-      <description>Windows Server </description>
     </item>
     
     <item>
@@ -44,15 +35,6 @@
     </item>
     
     <item>
-      <title>An Example Post</title>
-      <link>http://yunweigo.github.io/post/secound/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://yunweigo.github.io/post/secound/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Sentinel教程</title>
       <link>http://yunweigo.github.io/post/sentinel/01-shentinel/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
@@ -69,15 +51,18 @@
 https://github.com/alibaba/sentinel-golang/wiki/%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE
 熔断降级设计模型 https://sentinelguard.io/zh-cn/docs/golang/circuit-breaking.html
 Sentinel 在Java中使用 AHAS 高可用 文档链接 https://help.aliyun.com/product/87450.html
-Sentinel 与 Hytrix的区别 </description>
+Sentinel 与 Hytrix的区别 sentinel 限流措施  通过并发线程数进行限制 通过响应时间对资源进行降级  Hytrix 限流方案 Hystrix 通过线程池的方式，来对依赖(在我们的概念中对应资源)进行了隔离。
+流控场景及方案 转自 https://sentinelguard.io/zh-cn/docs/golang/flow-control.html
+基于QPS进行流控 基于对某个资源访问的QPS来做流控，这个是非常常见的场景。流控规则的配置下面有个sample：
+{ 	Resource: &amp;#34;some-test&amp;#34;,  TokenCalculateStrategy: flow.Direct, 	ControlBehavior: flow.Reject, 	Threshold: 500,  StatIntervalInMs: 1000, } 上面sample中的5个字段是必填的。其中StatIntervalInMs必须是1000，表示统计周期是1s，那么Threshold所配置的值也就是QPS的阈值。</description>
     </item>
     
     <item>
       <title>Windows Server</title>
-      <link>http://yunweigo.github.io/post/windows-ad-01/</link>
+      <link>http://yunweigo.github.io/post/windows/windows-ad-01/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yunweigo.github.io/post/windows-ad-01/</guid>
+      <guid>http://yunweigo.github.io/post/windows/windows-ad-01/</guid>
       <description>Windows Server </description>
     </item>
     
@@ -88,6 +73,33 @@ Sentinel 与 Hytrix的区别 </description>
       
       <guid>http://yunweigo.github.io/post/k8s/</guid>
       <description>Kubernets 教程 思维导图 我们应该准备什么 入门教程 https://www.bilibili.com/video/BV1w4411y7Go?spm_id_from=333.337.search-card.all.click</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yunweigo.github.io/post/openapi/api%E7%BD%91%E5%85%B3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yunweigo.github.io/post/openapi/api%E7%BD%91%E5%85%B3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yunweigo.github.io/post/prometheus/exporter/exporter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yunweigo.github.io/post/prometheus/exporter/exporter/</guid>
+      <description>利用python自定义 exporter
+自己的node_exporter记录
+Counter（累加指标）
+Gauge（测量指标）
+Summary(策略图)
+Histogram（直方图）
+如何为中间件开发Exporter prometheus client_python
+prometheus_client_go
+go语言 开发示例
+Golang</description>
     </item>
     
   </channel>
